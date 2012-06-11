@@ -1,0 +1,60 @@
+﻿@model Nop.Web.Models.Customer.CustomerRewardPointsModel
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+}
+@using Nop.Web.Framework;
+@using MvcContrib.UI.Grid;
+<div class="account-page">
+    <div class="page-title">
+        <h1>@T("Account.RewardPoints")</h1>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="body">
+        <div class="customer-rewardpoints">
+            <div class="reward-points-overview">
+                @Model.RewardPointsBalance
+            </div>
+            <div class="clear">
+            </div>
+            <div class="section-title">
+                @T("RewardPoints.History")
+            </div>
+            <div class="clear">
+            </div>
+            <div class="reward-points-history">
+                @if (Model.RewardPoints.Count > 0)
+                {
+                    <ul data-role="listview" data-inset="true" data-filter="false">
+                        @foreach (var rph in Model.RewardPoints)
+                        {
+                            <li>
+                                <div class="item">
+                                    <div>
+                                        @T("RewardPoints.Fields.Date"): @rph.CreatedOn
+                                    </div>
+                                    <div>
+                                        @T("RewardPoints.Fields.Points"): @rph.Points
+                                    </div>
+                                    <div>
+                                        @T("RewardPoints.Fields.PointsBalance"): @rph.PointsBalance
+                                    </div>
+                                    <div>
+                                        @T("RewardPoints.Fields.Message"): @rph.Message
+                                    </div>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    @T("RewardPoints.NoHistory")
+                }
+            </div>
+        </div>
+    </div>
+</div>

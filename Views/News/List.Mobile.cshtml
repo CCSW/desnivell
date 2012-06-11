@@ -1,0 +1,36 @@
+﻿@model Nop.Web.Models.News.NewsItemListModel
+@using Nop.Web;
+@using Nop.Web.Extensions;
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.NewsArchive").Text);
+
+}
+<div class="newslist">
+    <div class="page-title">
+        <h1>@T("News")</h1>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="newsitems">
+        @foreach (var item in Model.NewsItems)
+        {
+            <div class="item">
+                <a class="newstitle" href="@Url.RouteUrl("NewsItem", new { newsItemId = item.Id, SeName = item.SeName })">
+                    @item.Title</a> <span class="newsdate">-
+                        @item.CreatedOn.ToString("D")
+                    </span>
+                <div class="newsdetails">
+                    @Html.Raw(item.Short)
+                </div>
+                <a href="@Url.RouteUrl("NewsItem", new { newsItemId = item.Id, SeName = item.SeName })" class="readmore">
+                    @T("News.MoreInfo")</a>
+            </div>
+        }
+    </div>
+    <div class="pager">
+        @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+    </div>
+</div>

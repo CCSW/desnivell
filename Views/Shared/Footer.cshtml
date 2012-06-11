@@ -1,0 +1,22 @@
+﻿@model FooterModel
+@using Nop.Web.Models.Common;
+<div class="footer">
+    <div class="footer-poweredby">
+        Powered by <a href="http://www.nopcommerce.com/">nopCommerce</a>
+        <!--Would you like
+                to remove the "Powered by nopCommerce" link in the bottom of the footer? Find more
+                info here http://www.nopcommerce.com/copyrightremoval.aspx -->
+    </div>
+    <div class="footer-disclaimer">        
+        <div class="footer-storetheme">
+            @Html.Action("StoreThemeSelector", "Common")
+        </div>
+        @Html.Action("ChangeDeviceBlock", "Common")
+        @Html.Action("WidgetsByZone", "Widget", new { widgetZone = Nop.Core.Domain.Cms.WidgetZone.Footer })
+        <div class="infoFooter">
+        @Html.Action("InfoBlock_footer","Common")
+        @Html.Action("FollowUs","Common") 
+        </div>              
+    </div>     
+    <div class="copyright">@T("Content.CopyrightNotice", DateTime.Now.Year.ToString(), @Model.StoreName)</div>
+</div>

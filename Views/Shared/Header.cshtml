@@ -1,0 +1,23 @@
+﻿<div class="header">
+    <div class="header-logo">
+        <a href="@Url.RouteUrl("HomePage")" class="logo">&nbsp; </a>        
+    </div>
+    <div class="header-links-wrapper">
+        @Html.Action("HeaderLinks", "Common")
+        @Html.Action("FollowUs", "Common") 
+    </div>
+       
+    <div class="header-selectors-wrapper">
+        <div class="header-taxDisplayTypeSelector">
+            @Html.Action("TaxTypeSelector", "Common")
+        </div>
+        <div class="header-currencyselector">
+            @Html.Action("CurrencySelector", "Common")
+        </div>                       
+        <div class="header-languageselector">
+            @Html.Action("LanguageSelector", "Common")
+        </div>
+        
+        @Html.Action("WidgetsByZone", "Widget", new { widgetZone = Nop.Core.Domain.Cms.WidgetZone.HeaderSelectors })
+    </div>
+</div>

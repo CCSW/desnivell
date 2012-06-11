@@ -1,0 +1,87 @@
+﻿@model TopicModel
+@using Nop.Web.Models.Topics
+@{
+    var isPopup = ViewBag.IsPopup;
+    if (isPopup == null || isPopup == false)
+    {
+        Layout = "~/Views/Shared/_ColumnsThree.cshtml";
+    }
+    else
+    {
+        /*pop-up windows*/
+        Layout = "~/Views/Shared/_RootPopup.cshtml";
+    }
+
+    if (!Model.IsPasswordProtected)
+    {
+        Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Title);
+        Html.AddMetaDescriptionParts(Model.MetaDescription);
+        Html.AddMetaKeywordParts(Model.MetaKeywords);
+    }
+}
+@if (Model.IsPasswordProtected)
+{
+    // For popup topics, use a minimal layout that includes the Ajax and jQuery scripts
+    if (isPopup != null && isPopup == true)
+    {
+        Layout = "~/Views/Shared/_RootPopup.cshtml";
+    }    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#phTopic').hide();
+            $('#phPassword #password').select().focus();
+        });
+        function OnAuthenticateSuccess(context) {
+            if (context.Authenticated) {
+                $('#phTitle .page-title h1').html(context.Title);
+                if ($('#phTitle .page-title h1').text().length == 0) {
+                    $('#phTitle').hide();
+                }
+                $('#phTopic .topicpage-body').html(context.Body);
+                $('#phPassword').hide();
+                $('#phTopic').show();
+            }
+            else {
+                $('#passworderror').text(context.Error);
+                $('#phPassword #password').select().focus();
+            }
+        }
+    </script>
+    <div id="phPassword">
+        @using (Ajax.BeginForm("Authenticate", new AjaxOptions
+        {
+            HttpMethod = "Post",
+            OnSuccess = "OnAuthenticateSuccess",
+            LoadingElementId = "authenticate-progress"
+        }))
+        {
+            @Html.HiddenFor(model => model.Id)
+            <div>
+                @T("Topic.EnterPassword")
+            </div>
+            <div>
+                @Html.Password("password")
+                <input type="submit" id="btnPassword" value = @T("Topic.Button") class="useragreementbutton"/>
+                <span id="authenticate-progress" style="display: none;">@T("Common.Wait...")
+                    <img src='@Url.Content("~/Content/Images/ajax_loader_small.gif")' alt="@T("Common.Wait...")" />
+                </span>
+            </div>
+            <div>
+                <span id="passworderror"></span>
+            </div>
+        }
+    </div>
+}
+<div class="topicpage" id="phTopic">
+    <div id="phTitle">
+        <div class="page-title">
+            <h1>
+                @Model.Title</h1>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="topicpage-body">
+        @Html.Raw(Model.Body)
+    </div>
+</div>

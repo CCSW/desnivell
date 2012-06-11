@@ -1,0 +1,52 @@
+﻿@model CheckoutPaymentInfoModel
+@using Nop.Core.Domain.Orders
+@using Nop.Web.Models.Checkout
+@using Nop.Web.Models.Common
+@using Nop.Web.Framework.UI
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Checkout").Text);
+}
+<div class="checkout-page">
+    @Html.Action("CheckoutProgress", "Checkout", new { step = CheckoutProgressStep.Payment })
+    <div class="clear">
+    </div>
+    <div class="page-title">
+        <h1>@T("Checkout.PaymentInfo")</h1>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="checkout-data">
+        @using (Html.BeginRouteForm("CheckoutPaymentInfo", FormMethod.Post))
+        {
+            <div class="payment-info">
+                <div class="body">
+                    @Html.Action(Model.PaymentInfoActionName, Model.PaymentInfoControllerName, Model.PaymentInfoRouteValues)
+                </div>
+                <div class="clear">
+                </div>
+                <div class="select-button">
+                    <input type="submit" name="nextstep" value="@T("Checkout.NextButton")" id="nextstep" class="paymentinfonextstepbutton" />
+                </div>
+            </div>
+            
+            <div class="clear">
+            </div>
+                <div class="message-error">
+                    @Html.ValidationSummary(false)
+                </div>
+        }
+        <div class="clear">
+        </div>
+        <div class="order-summary-title">
+            @T("Checkout.OrderSummary")
+        </div>
+        <div class="clear">
+        </div>
+        <div class="order-summary-body">
+            @Html.Action("OrderSummary", "ShoppingCart", new { isEditable = false })
+        </div>
+    </div>
+</div>

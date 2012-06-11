@@ -1,0 +1,101 @@
+﻿@model Telerik.Web.Mvc.GridModel<PluginModel>
+@using Telerik.Web.Mvc.UI
+<div class="section-header">
+    <div class="title">
+        <img src="@Url.Content("~/Administration/Content/images/ico-configuration.png")" alt="" />
+        @T("Admin.Configuration.Plugins")
+    </div>
+    <div class="options">
+        <a href="@Url.Action("ReloadList")" class="t-button">@T("Admin.Configuration.Plugins.ReloadList")</a>
+    </div>
+</div>
+<table class="adminContent">
+    <tr>
+        <td>
+            <h4>@T("Admin.Configuration.Plugins.Description"):</h4>
+            <ol>
+                <li>@T("Admin.Configuration.Plugins.Description.Step1")</li>
+                <li>@T("Admin.Configuration.Plugins.Description.Step2")</li>
+                <li>@T("Admin.Configuration.Plugins.Description.Step3")</li>
+                <li>@T("Admin.Configuration.Plugins.Description.Step4")</li>
+                <li>@T("Admin.Configuration.Plugins.Description.Step5")</li>
+            </ol>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4>@T("Admin.Configuration.Plugins.Editing")</h4>
+            @T("Admin.Configuration.Plugins.Editing.Hint")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @(Html.Telerik().Grid<PluginModel>()
+                    .Name("plugins-grid")
+                    .DataKeys(keys =>
+                    {
+                        keys.Add(x => x.SystemName);
+                    })
+                    .BindTo(Model.Data)
+                    .Columns(columns =>
+                    {
+                        columns.Bound(x => x.Group)
+                            .ReadOnly()
+                            .Width(150)
+                            .Centered();
+                        columns.Bound(x => x.FriendlyName)
+                             .Width(150)
+                             .Centered();
+                        columns.Bound(x => x.SystemName)
+                            .ReadOnly()
+                            .Width(150)
+                            .Centered();
+                        columns.Bound(x => x.Version)
+                            .ReadOnly()
+                            .Width(50)
+                            .Centered();
+                        columns.Bound(x => x.Author)
+                            .ReadOnly()
+                            .Width(100)
+                            .Centered();
+                        columns.Bound(x => x.DisplayOrder)
+                            .Width(50)
+                            .Centered();
+                        columns.Bound(x => x.Installed)
+                            .ReadOnly()
+                            .Width(50)
+                            .Template(x => x.Installed.ToString().ToLower())
+                            .Centered();
+                        columns.Bound(x => x.ConfigurationUrl)
+                            .ReadOnly()
+                            .Width(50)
+                            //allow configuration only when a plugin has a configuration URL specified
+                            .Template(x => (!String.IsNullOrEmpty(x.ConfigurationUrl)) ? string.Format("<a href=\"{0}\">{1}</a>", x.ConfigurationUrl, T("Admin.Configuration.Plugins.Fields.Configure").Text) : "")
+                            .ClientTemplate("<# if (ConfigurationUrl && ConfigurationUrl.length > 0)  { #> <a href=\"<#= ConfigurationUrl #>\">" + T("Admin.Configuration.Plugins.Fields.Configure").Text + "</a> <# } else { #>  <# } #>")
+                            .Centered();
+                        columns.Bound(x => x.SystemName)
+                            .ReadOnly()
+                            .Template(x =>
+                                Html.ActionLink(x.Installed ? T("Admin.Configuration.Plugins.Fields.Uninstall").Text : T("Admin.Configuration.Plugins.Fields.Install").Text,
+                                x.Installed ? "Uninstall" : "Install", new { systemName = x.SystemName }))
+                            .ClientTemplate("<# if (Installed)  { #> <a href=\"" + @Url.Content("~/Admin/Plugin/Uninstall/") + "?systemName=<#= SystemName #>\">" + T("Admin.Configuration.Plugins.Fields.Uninstall").Text + "</a> <# } else { #> <a href=\"" + @Url.Content("~/Admin/Plugin/Install/") + "?systemName=<#= SystemName #>\">" + T("Admin.Configuration.Plugins.Fields.Install").Text + "</a> <# } #>")
+                            .Width(50)
+                            .Centered()
+                            .HeaderTemplate(T("Admin.Configuration.Plugins.Fields.Installation").Text);
+                    })
+                    .ToolBar(commands =>
+                    {
+                        commands.SubmitChanges();
+                    })
+                    .DataBinding(dataBinding =>
+                        dataBinding.Ajax()
+                            .Select("BulkEditSelect", "Plugin")
+                            .Update("BulkEditSave", "Plugin")
+                    )
+                    .Editable(editing => editing.Mode(GridEditMode.InCell))
+                    .Footer(false))
+
+                    
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,90 @@
+﻿@model Nop.Web.Models.Order.SubmitReturnRequestModel
+@{
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.ReturnItems").Text);
+}
+<div class="return-request">
+    <div class="info">
+        <div class="page-title">
+            <h1>@string.Format(@T("ReturnRequests.Title").Text, Model.OrderId)</h1>
+        </div>
+        <div class="clear">
+        </div>
+        @if (!String.IsNullOrEmpty(Model.Result))
+        {
+            <div>
+                @Model.Result</div>
+        }
+        else
+        {
+            
+            <div class="section-addinfo">@T("ReturnRequests.SelectProduct(s)")</div>
+            <div class="clear">
+            </div>
+            using (Html.BeginForm())
+            {
+
+                if (Model.Items.Count > 0)
+                {
+            <ul data-role="listview" data-inset="true" data-filter="false">
+                @foreach (var item in Model.Items)
+                {   
+                    <li>
+                        <div class="products-box">
+                            <div class="product">
+                                <a href="@Url.RouteUrl("Product", new { productId = item.ProductId, SeName = item.ProductSeName })" title="View details">@item.ProductName</a>
+                                @if (!String.IsNullOrEmpty(item.AttributeInfo))
+                                {
+                                    <br />
+                                    @Html.Raw(item.AttributeInfo)
+                                }
+                            </div>
+                            <div class="price">
+                                @T("ReturnRequests.Products.Price"): @item.UnitPrice
+                            </div>
+                            <div class="qty" data-role="fieldcontain">
+                                <fieldset data-role="controlgroup" data-type="horizontal">
+                                    <span>@T("ReturnRequests.Products.Quantity"):</span>
+                                    <select name="quantity@(item.Id)" id="quantity@(item.Id)">
+                                        @for (int i = 0; i <= item.Quantity; i++)
+                                        {
+                                            <option value="@(i)">@(i)</option>
+                                        }
+                                    </select>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+                }
+            <div class="clear">
+            </div>
+            <div class="section-addinfo">
+                @T("ReturnRequests.WhyReturning")</div>
+            <div class="clear">
+            </div>
+            <div class="why">
+                <div>
+                    @Html.LabelFor(model => model.ReturnReason)
+                    @Html.DropDownListFor(model => model.ReturnReason, Model.AvailableReturnReasons, new { @class = "return-reasons" })
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.ReturnAction)
+                    @Html.DropDownListFor(model => model.ReturnAction, Model.AvailableReturnActions, new { @class = "return-actions" })
+                </div>
+                <div>
+                    @Html.LabelFor(model => model.Comments)
+                    @Html.TextAreaFor(model => model.Comments, new { @class = "comment" })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(model => model.Comments)
+                </div>
+                <input type="submit" id="submit-return-request" name="submit-return-request" value="@T("ReturnRequests.Submit")" />
+            </div>
+            }
+        }
+    </div>
+</div>

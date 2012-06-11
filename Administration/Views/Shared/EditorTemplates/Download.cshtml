@@ -1,0 +1,151 @@
+﻿@model int
+@using Nop.Core;
+@using Nop.Web.Framework.UI;
+@{
+    //register CSS and JS
+    Html.AddCssFileParts(@Url.Content("~/Administration/Content/uploadify.css"));
+    Html.AddScriptParts(@Url.Content("~/Administration/Scripts/swfobject.js"));
+    Html.AddScriptParts(@Url.Content("~/Administration/Scripts/jquery.uploadify.v2.1.4.min.js"));
+    
+    //other variables
+    var randomNumber = CommonHelper.GenerateRandomInteger();
+    var clientId = "download" + randomNumber;
+    var downloadService = EngineContext.Current.Resolve<Nop.Services.Media.IDownloadService>();
+    var download = downloadService.GetDownloadById(Model);
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#cbUseDownloadURL@(randomNumber)').click(toggleDownloadRecordType@(randomNumber));
+
+        
+        $('#saveDownloadUrl@(randomNumber)').click(function () {
+                var downloadUrl = $("#downloadurl@(randomNumber)").val();
+                $('#saveDownloadUrl@(randomNumber)').attr('disabled', true);
+                $.ajax({
+                    cache:false,
+                    type: "POST",
+                    url: "@(Url.Action("SaveDownloadUrl", "Download"))",
+                    data: { "downloadUrl": downloadUrl },
+                    success: function (data) {
+                         $('#pnlDownloadURLResult@(randomNumber)').fadeIn("slow").delay(1000).fadeOut("slow");
+                         $("#@(clientId + "value") input").val(data.downloadId);
+                         $('#saveDownloadUrl@(randomNumber)').attr('disabled', false);
+
+                    },
+                    error:function (xhr, ajaxOptions, thrownError){
+                        alert('Failed to save download object.')
+                        $('#saveDownloadUrl@(randomNumber)').attr('disabled', false);
+                    }  
+                });
+            });
+
+        toggleDownloadRecordType@(randomNumber)();
+    });
+
+    function toggleDownloadRecordType@(randomNumber)() {
+        if (getE('cbUseDownloadURL@(randomNumber)').checked) {
+                $('#pnlDownloadURL@(randomNumber)').show();
+                $('#pnlDownloadFile@(randomNumber)').hide();
+            }
+            else {
+                $('#pnlDownloadURL@(randomNumber)').hide();
+                $('#pnlDownloadFile@(randomNumber)').show();
+            }
+        }
+
+</script>
+
+
+<div id="@(clientId + "value")">
+    @Html.HiddenFor(x => x)
+</div>
+<table class="adminContent" border="1" style="width:500px">
+        <tr>
+            <td class="adminTitle">
+                @T("Admin.Download.UseDownloadURL"):
+            </td>
+            <td class="adminData">
+                <input type="checkbox" name="cbUseDownloadURL@(randomNumber)" id="cbUseDownloadURL@(randomNumber)" 
+                @if (download != null && download.UseDownloadUrl)
+                {
+                    <text>checked="checked"</text>
+                }
+                />
+            </td>
+        </tr>
+        <tr id="pnlDownloadURL@(randomNumber)">
+            <td class="adminTitle">
+                @T("Admin.Download.DownloadURL"):
+            </td>
+            <td class="adminData">
+                <input type="text" name="downloadurl@(randomNumber)" id="downloadurl@(randomNumber)"
+                @if (download != null && !String.IsNullOrEmpty(download.DownloadUrl))
+                {
+                    <text>value="@(download.DownloadUrl)"</text>
+                }
+                />
+                <button type="button" name="saveDownloadUrl@(randomNumber)" id="saveDownloadUrl@(randomNumber)" class="t-button">@T("Admin.Download.SaveDownloadURL")</button>
+                <div id="pnlDownloadURLResult@(randomNumber)" style="display:none;">@T("Admin.Download.DownloadURLSaved")</div>
+            </td>
+        </tr>
+        <tr id="pnlDownloadFile@(randomNumber)">
+            <td class="adminTitle">
+                @T("Admin.Download.UploadFile"):
+            </td>
+            <td class="adminData">
+                <div>
+                    <input type="file" id="@clientId"/>
+                    <script type="text/javascript">
+                    $(function () {
+                        $(function () {
+                        
+                            var authToken = '@(this.Context.Request.Cookies[FormsAuthentication.FormsCookieName] == null ? string.Empty : Request.Cookies[FormsAuthentication.FormsCookieName].Value)';
+
+                            $("#@clientId").uploadify({
+                                "uploader": "@(Url.Content("~/Content/Flash/uploadify.swf"))",
+                                "script": "@(Url.Content("~/Admin/Download/AsyncUpload"))",
+                                "scriptData": { authToken: authToken },
+                                "multi": "false",
+                                "auto": true,
+                                "buttonText": "Upload",
+                                "cancelImg": "@Url.Content("~/Administration/Content/images/cancel-uploading.png")",
+                                "onComplete": function (event, ID, fileObj, response, data) {
+                                    var json = jQuery.parseJSON(response);
+                                    $("#@(clientId + "downloadurl")").html("<a href='" + json.downloadUrl + "'>@T("Admin.Download.DownloadUploadedFile")</a>");
+                                    $("#@(clientId + "value") input").val(json.downloadId);
+                                    $("#@(clientId + "remove")").show();
+                                }
+                            });
+
+                            $("#@(clientId + "remove")").click(function(e){
+                                $("#@(clientId + "downloadurl")").html("");
+                                $("#@(clientId + "value") input").val(0);
+                                $(this).hide();
+                            });
+
+                        });
+                    });
+                </script>
+                </div>
+                <div id="@(clientId + "downloadurl")">
+                    @if (download != null)
+                    {
+                        <a href="@(Url.Action("DownloadFile", "Download", new { downloadId = Model }))">@T("Admin.Download.DownloadUploadedFile")</a>
+                    }
+                </div>
+                <div>
+                @if (download != null)
+                {
+                    <span id="@(clientId + "remove")" class="t-button">@T("Admin.Download.RemoveDownload")</span>
+                }
+                else
+                {
+                    <span id="@(clientId + "remove")" class="t-button" style="display:none;">@T("Admin.Download.RemoveDownload")</span>
+                }
+                </div>
+            </td>
+        </tr>
+</table>
+
+

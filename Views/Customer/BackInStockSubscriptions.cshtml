@@ -1,0 +1,70 @@
+﻿@model CustomerBackInStockSubscriptionsModel
+@using Nop.Web;
+@using Nop.Web.Extensions;
+@using Nop.Web.Framework;
+@using Nop.Web.Models.Customer;
+@using MvcContrib.UI.Grid;
+@{    
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+
+    Html.AddTitleParts(T("PageTitle.BackInStockSubscriptions").Text);
+}
+@section left
+{
+    @Html.Partial("MyAccountNavigation", Model.NavigationModel, new ViewDataDictionary())
+}
+<div class="account-page">
+    <div class="page-title">
+        <h1>@T("Account.MyAccount") - @T("Account.BackInStockSubscriptions")</h1>
+    </div>
+    <div class="clear">
+    </div>
+    <div class="body">
+        @if (Model.Subscriptions.Count > 0)
+        {
+            @T("Account.BackInStockSubscriptions.Description")
+            <br />
+            <br />
+            <script type="text/javascript">
+                $(window).bind('load', function () {
+                    var cbHeader = $(".cbHeader input");
+                    var cbRowItem = $(".cbRowItem input");
+                    cbHeader.bind("click", function () {
+                        cbRowItem.each(function () { this.checked = cbHeader[0].checked; })
+                    });
+                    cbRowItem.bind("click", function () { if ($(this).checked == false) cbHeader[0].checked = false; });
+                });
+            </script>            
+            using (Html.BeginForm("backinstocksubscriptions", "customer", FormMethod.Post))
+            {
+                <div class="backinstock-subscriptions-box">
+                    @Html.Grid(Model.Subscriptions).Columns(column =>
+               {
+                   column.For(biss => "<span class=\"cbRowItem\"><input type=\"checkbox\" name=\"biss" + biss.Id + "\" /></span>")
+                       .Encode(false)
+                       .Attributes(style => "width:5%;", align => "center")
+                       .Header("<th align=\"center\"><span class=\"cbHeader\"><input type=\"checkbox\" id=\"selectall\" /></span></th>");
+                   column.For(biss => (Html.RouteLink(biss.ProductName, "Product", new { productId = biss.ProductId, SeName = biss.SeName })))
+                       .Named(@T("Account.BackInStockSubscriptions.ProductColumn").Text)
+                       .HeaderAttributes(align => "center");
+               }).Attributes(style => "width:100%", @class => "backinstock-subscriptions-grid", cellspacing => "0", cellpadding => "4", border => "1").Empty("")
+                    @if (Model.PagerModel.TotalPages > 1)
+                    {
+                        <div class="bissgridpagerstyle">
+                            @Html.Pager(Model.PagerModel)
+                        </div>
+                    }
+                    <div class="clear">
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" value="@T("Account.BackInStockSubscriptions.DeleteSelected")" class="deleteselectedbissbutton" />
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            @T("Account.BackInStockSubscriptions.NoSubscriptions")
+        }
+    </div>
+</div>

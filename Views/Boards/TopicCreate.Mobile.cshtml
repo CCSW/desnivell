@@ -1,0 +1,7 @@
+﻿@model Nop.Web.Models.Boards.EditForumTopicModel
+@{    
+    Layout = "~/Views/Shared/_Root.cshtml";
+
+    Html.AddTitleParts(T("Forum.PageTitle.TopicNew").Text);    
+}
+@Html.Partial("_CreateUpdateTopic", @Model)

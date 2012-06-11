@@ -1,0 +1,26 @@
+﻿@model Nop.Web.Models.Common.CurrencySelectorModel
+@if (Model.AvailableCurrencies.Count > 1)
+{
+    var currencies = Model.AvailableCurrencies.Select(x => new SelectListItem
+    {
+        Text = x.Name,
+        Value = x.Id.ToString(),
+        Selected = x.Id.Equals(Model.CurrentCurrency.Id)
+    });
+    
+    @Html.DropDownList("customerCurrency", currencies)
+    
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#customerCurrency").change(onCurrencyChanged);
+        });
+
+        function onCurrencyChanged() {
+            var selectedCurrency = document.getElementById('customerCurrency');
+            var selectedCurrencyId = selectedCurrency.options[selectedCurrency.selectedIndex].value;
+            var changeCurrencyActionUrl = '@Url.Action("CurrencySelected", "Common", new { customerCurrency = "currencyplaceholder" })';
+            changeCurrencyActionUrl = changeCurrencyActionUrl.replace("currencyplaceholder", selectedCurrencyId);
+            setLocation(changeCurrencyActionUrl);
+        }
+    </script>
+}

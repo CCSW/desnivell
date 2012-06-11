@@ -1,0 +1,5 @@
+# Directorios temporales
+obj/**/*
+bin/**/*
+Administration/obj/**/*
+Administration/Bin/**/*

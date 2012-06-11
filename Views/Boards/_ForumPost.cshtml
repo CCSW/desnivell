@@ -1,0 +1,101 @@
+﻿@model ForumPostModel
+@using Nop.Services.Customers;
+@using Nop.Services.Forums;
+@using Nop.Services.Seo;
+@using Nop.Web.Framework;
+@using Nop.Web.Models.Boards;
+@Html.Raw(String.Format("<a name=\"{0}\"></a>", @Model.Id))
+<div class="forumpost" id="@Html.Encode(String.Format("post{0}", @Model.Id))">
+    <div class="postinfo">
+        <div class="manage">
+            @if (Model.IsCurrentCustomerAllowedToEditPost)
+            {                
+                @Html.RouteLink(@T("Forum.EditPost").Text, "PostEdit", new { id = @Model.Id }, new { @class = "editpostlinkbutton" })
+            }
+            @if (Model.IsCurrentCustomerAllowedToDeletePost)
+            {
+                @Html.RouteLink(@T("Forum.DeletePost").Text, "PostDelete", new { id = @Model.Id }, new { onClick = String.Format("return confirm('{0}');", @T("Common.AreYouSure").Text), @class = "deletepostlinkbutton" })
+            }
+        </div>
+        <div class="userinfo">
+            @if (@Model.CustomerId > 0)
+            {
+                if (Model.AllowViewingProfiles && !Model.IsCustomerGuest)
+                {
+                @Html.RouteLink(Model.CustomerName, "CustomerProfile", new { id = Model.CustomerId }, new { @class = "username" })
+                }
+                else
+                {                    
+                <span class="username">@Model.CustomerName</span>
+                }
+            }
+            @if (!String.IsNullOrEmpty(Model.CustomerAvatarUrl))
+            {
+                <div class="avatar">
+                    <img src="@(Model.CustomerAvatarUrl)" class="avatar-img" alt="Avatar" />
+                </div>
+            }
+            <div class="userstats">
+                @if (Model.IsCustomerForumModerator)
+                {
+                    <div class="status">
+                        @T("Forum.Status"): <span class="statvalue">@T("Forum.Moderator")</span>
+                    </div>
+                }
+                @if (Model.ShowCustomersPostCount)
+                {
+                    <div class="totalposts">
+                        @T("Forum.TotalPosts"): <span class="statvalue">
+                            @Model.ForumPostCount</span>
+                    </div>
+                }
+                @if (Model.ShowCustomersJoinDate && !Model.IsCustomerGuest)
+                {
+                    <div class="joined">
+                        @T("Forum.Joined"): <span class="statvalue">@Model.CustomerJoinDate.ToString("d")</span>
+                    </div>
+                }
+                @if (Model.ShowCustomersLocation && !Model.IsCustomerGuest & !String.IsNullOrEmpty(Model.CustomerLocation))
+                {
+                    <div class="location">
+                        @T("Forum.Location"): <span class="statvalue">@Model.CustomerLocation</span>
+                    </div>
+                }
+                @if (Model.AllowPrivateMessages && !Model.IsCustomerGuest)
+                {
+                    <div class="sendpmbox">
+                        @Html.RouteLink(T("Forum.PrivateMessages.PM").Text, "SendPM", new { toCustomerId = @Model.CustomerId }, new { @class = "pmlinkbutton" })
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="postcontent">
+        <div class="posttime">
+            @T("Forum.Posted"): <span class="statvalue">@Model.PostCreatedOnStr</span>
+            @Html.RouteLink(@T("Forum.QuotePost").Text, "PostCreateQuote", new { id = @Model.ForumTopicId, quote = @Model.Id }, new { @class = "quotepostlinkbutton" })
+            @if (@Model.CurrentTopicPage > 1)
+            {                
+                @Html.RouteLink(String.Format("#{0}", @Model.Id.ToString()), "TopicSlugPaged", "http", string.Empty, @Model.Id.ToString(), new { id = @Model.ForumTopicId, slug = @Model.ForumTopicSeName, page = @Model.CurrentTopicPage }, new { @class = "postlink", title = @T("Forum.PostLinkTitle") })
+            }
+            else
+            {                
+                @Html.RouteLink(String.Format("#{0}", @Model.Id.ToString()), "TopicSlug", "http", string.Empty, @Model.Id.ToString(), new { id = @Model.ForumTopicId, slug = @Model.ForumTopicSeName }, new { @class = "postlink", title = @T("Forum.PostLinkTitle") })
+            }
+        </div>
+        <div class="postbody">
+            <div class="posttext">
+                @Html.Raw(@Model.FormattedText)
+            </div>
+            @Html.Hidden("Id", @Model.Id)
+        </div>
+        @if (Model.SignaturesEnabled & !String.IsNullOrEmpty(Model.FormattedSignature))
+        {            
+            <div class="signature">
+                @Html.Raw(@Model.FormattedSignature)
+            </div>
+        }
+    </div>
+    <div class="clear">
+    </div>
+</div>
