@@ -6,9 +6,9 @@
 @if (Model.Enabled)
 {
     <div class="product-spec-filter">
-            @*<div class="title">
+            <div class="title">
                @T("Filtering.SpecificationFilter")
-            </div>*@
+            </div>
             <div class="clear">
             </div>
             @if (Model.NotFilteredItems.Count > 0)
@@ -32,7 +32,7 @@
                 </div>                
             }
                                                                        
-          @*@if (Model.AlreadyFilteredItems.Count > 0)
+          @if (Model.AlreadyFilteredItems.Count > 0)
             {
                 <div>
                     <div class="title">
@@ -69,6 +69,6 @@
                 <div class="remove-filter">
                     <a href="@Model.RemoveFilterUrl" class="remove-product-spec-filter">@T("Filtering.SpecificationFilter.Remove")</a>
                 </div>
-            }*@
+            }
         </div>
 }
