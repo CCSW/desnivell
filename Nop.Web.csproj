@@ -1255,67 +1255,6 @@
     <Content Include="Scripts\public.js" />
     <Content Include="Scripts\slimbox2.js" />
     <Content Include="StoreClosed.htm" />
-    <Content Include="Themes\DarkOrange\Content\styles.rtl.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Themes\DarkOrange\Content\images\bbeditor-button-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_textbox.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_body.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_container.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_maincolumn_1.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_maincolumn_2.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_maincolumn_3.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_sidebar_block.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\bg_sidebar_title.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\btn_download_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\cart-footer-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\cart-header-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\closelabel.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\deal_box_hl.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\deal_box_hr.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\fb_s_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\forum-footer-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\forum-header-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\grey_button_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\grid-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\grid_header_back.png" />
-    <Content Include="Themes\DarkOrange\Content\images\home-cat-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\home-cat-title.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-account.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-admin.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-arrow-r.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-cart.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-delete.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-edit.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-forum-post-add.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-forum-post-high.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-forum-post.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-forum-watch.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-forum.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-inbox.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-login.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-logout.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-move-topic.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-pm.png" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-register.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\ico-wishlist.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\arrow-up.png" />
-    <Content Include="Themes\DarkOrange\Content\images\loading.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\logo.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\nextlabel.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\orange_button_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\pb_s_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\pm-footer-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\pm-header-bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\prevlabel.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\prod_grid_box_bg.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\progress-step-active.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\progress-step-inactive.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\star_x_active.gif" />
-    <Content Include="Themes\DarkOrange\Content\images\star_x_inactive.gif" />
-    <Content Include="Themes\DarkOrange\Content\styles.css">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Themes\Desnivell\Content\images\add_to_cart_btn.gif" />
     <Content Include="Themes\Desnivell\Content\images\arrow-up.png" />
     <Content Include="Themes\Desnivell\Content\images\bbeditor-button-bg.gif" />
@@ -1379,46 +1318,6 @@
     <Content Include="Themes\Mobile\Content\styles.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Themes\nopClassic\Content\images\bbeditor-button-bg.gif" />
-    <Content Include="Themes\nopClassic\Content\images\bg_textbox.gif" />
-    <Content Include="Themes\nopClassic\Content\images\btn_download_bg.gif" />
-    <Content Include="Themes\nopClassic\Content\images\cart_line_x.gif" />
-    <Content Include="Themes\nopClassic\Content\images\cart_line_y.gif" />
-    <Content Include="Themes\nopClassic\Content\images\closelabel.gif" />
-    <Content Include="Themes\nopClassic\Content\images\EmptyStar.png" />
-    <Content Include="Themes\nopClassic\Content\images\FilledStar.png" />
-    <Content Include="Themes\nopClassic\Content\images\grey_button_bg.gif" />
-    <Content Include="Themes\nopClassic\Content\images\grid_header_back.png" />
-    <Content Include="Themes\nopClassic\Content\images\ico-account.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-admin.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-arrow-r.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-cart.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-delete.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-edit.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-forum-post-add.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-forum-post-high.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-forum-post.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-forum-watch.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-forum.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-inbox.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-login.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-logout.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-move-topic.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-pm.png" />
-    <Content Include="Themes\nopClassic\Content\images\ico-register.gif" />
-    <Content Include="Themes\nopClassic\Content\images\ico-wishlist.gif" />
-    <Content Include="Themes\nopClassic\Content\images\arrow-up.png" />
-    <Content Include="Themes\nopClassic\Content\images\loading.gif" />
-    <Content Include="Themes\nopClassic\Content\images\logo.gif" />
-    <Content Include="Themes\nopClassic\Content\images\nextlabel.gif" />
-    <Content Include="Themes\nopClassic\Content\images\orange_button_bg.gif" />
-    <Content Include="Themes\nopClassic\Content\images\prevlabel.gif" />
-    <Content Include="Themes\nopClassic\Content\images\progress-step-active.gif" />
-    <Content Include="Themes\nopClassic\Content\images\progress-step-inactive.gif" />
-    <Content Include="Themes\nopClassic\Content\images\SavedStar.png" />
-    <Content Include="Themes\nopClassic\Content\images\star_x_active.gif" />
-    <Content Include="Themes\nopClassic\Content\images\star_x_inactive.gif" />
-    <Content Include="Themes\nopClassic\Content\styles.css" />
     <Content Include="Themes\print.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -1619,16 +1518,6 @@
       <Project>{75FD4163-333C-4DD5-854D-2EF294E45D94}</Project>
       <Name>Nop.Web.Framework</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Themes\DarkOrange\theme.config" />
-    <Content Include="Themes\DarkOrange\Views\Shared\Head.cshtml" />
-    <Content Include="Themes\DarkOrange\Views\Web.config" />
-    <Content Include="Themes\nopClassic\theme.config">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="Themes\nopClassic\Views\Shared\Head.cshtml" />
-    <Content Include="Themes\nopClassic\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />

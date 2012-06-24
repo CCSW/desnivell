@@ -484,14 +484,14 @@ ul.languagelist li:hover{cursor:pointer;}
 .breadcrumb{float:left;padding:0;margin:10px 0 0;font-weight:700;text-transform:uppercase;font-size:1em;margin-bottom:10px;}
 .breadcrumb a{text-decoration:none;color:#3A4045;}
 .breadcrumb a:hover{text-decoration:underline;}
-.newslist{margin-bottom:15px;padding-bottom:5px;padding-left:0;}
-.newslist .page-title{padding:10px 0 1px;margin:0 5px 10px;font-weight:700;text-transform:uppercase;clear:both;font-size:1.1em;border-bottom:solid 1px #C4C6C8;}
-.newslist .page-title .title{text-align:left}
-.newslist .page-title .rss{text-align:right}
+.newslist{margin:5px 5px 15px;padding-bottom:5px;padding-left:0;border:1px solid #cccccc;border-radius:7px}
+.newslist .page-title{padding:10px 0 1px;height:30px;font-weight:700;clear:both;font-size:1.1em;border:1px #ffffff;border-bottom:solid 1px orange;background-color:#f5f5f5}
+.newslist .page-title .title{text-align:center}
+.newslist .page-title .rss{text-align:center}
 .newslist .newsitems{margin:0 5px;padding:0;}
 .newslist .newsitems .item{border-bottom:dashed 1px #C4C6C8;margin-bottom:10px;padding-bottom:10px;}
 .newslist .newsitems .newsdate{color:#9a9a9a;font-style:italic;}
-.newslist .newsitems a.newstitle{color:#555;text-decoration:none;font-size:1.2em;}
+.newslist .newsitems a.newstitle{color:#3D5793;text-decoration:none;/*font-size:1.2em;*/}
 .newslist .newsitems a.newstitle:hover{text-decoration:underline;}
 .newslist .newsitems .newsdetails{margin-top:10px;margin-bottom:10px;}
 .newslist .newsitems .readmore{font-weight:700;text-decoration:none;color:#3664A5;background-color:inherit;}

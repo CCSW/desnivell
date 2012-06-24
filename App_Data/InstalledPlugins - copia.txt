@@ -4,8 +4,12 @@ DiscountRequirement.PurchasedOneProduct
 DiscountRequirement.HadSpentAmount
 DiscountRequirement.HasAllProducts
 DiscountRequirement.HasOneProduct
+DiscountRequirement.MustBeAssignedToCustomerRole
 DiscountRequirement.ShippingCountryIs
+CurrencyExchange.ECB
+CurrencyExchange.MoneyConverter
 ExternalAuth.OpenId
+ExternalAuth.Facebook
 ExternalAuth.Twitter
 Misc.MailChimp
 Misc.WebServices
@@ -18,6 +22,9 @@ Payments.GoogleCheckout
 Payments.PayInStore
 Payments.PayPalStandard
 Payments.PurchaseOrder
+PromotionFeed.Become
+PromotionFeed.Froogle
+PromotionFeed.PriceGrabber
 Shipping.AustraliaPost
 Shipping.CanadaPost
 Shipping.FedEx
