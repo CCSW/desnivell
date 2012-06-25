@@ -18,18 +18,18 @@ input
 } */
 /* MASTER PAGE WRAPPERS */
 .master-wrapper-page{margin:0 auto;width:100%;background-color: #4072B9;background-image: url(images/bg1.png);background-repeat: repeat-x;background-position: 0px bottom;}
-.master-wrapper-content{width:990px;margin:0 auto;padding-bottom:20px;text-align:left;background:#FFF;}
+.master-wrapper-content{width:1010px;margin:0 auto;padding-bottom:20px;text-align:left;background:#FFF;}
 /* one column master page */
 .master-wrapper-center-1{float:left;width:960px;background:#FFF;display:inline;}
 .master-wrapper-cph-1{float:left;width:940px;color:#000;min-height:600px;padding:10px;}
 /* two column master page */
-.master-wrapper-side-2{float:left;width:180px;margin:0 0 0 10px;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;display:inline;}
-.master-wrapper-center-2{float:left;width:760px;margin:0 0 0 10px;background:#FFF;display:inline;}
-.master-wrapper-cph-2{float:left;width:740px;background:#FFF;color:#000;min-height:400px;padding:10px;}
+.master-wrapper-side-2{float:left;width:180px;/*margin:0 0 0 10px;*/font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;display:inline;}
+.master-wrapper-center-2{float:left;width:800px;margin:0 0 0 10px;background:#FFF;display:inline;}
+.master-wrapper-cph-2{float:left;width:790px;background:#FFF;color:#000;min-height:400px;padding:10px;}
 /* three column master page */
 .master-wrapper-leftside-3{float:left;width:180px;margin:0 auto 10px;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;display:inline;}
-.master-wrapper-center-3{float:left;width:630px;margin:0 0 0 0px;display:inline;overflow:hidden;}
-.master-wrapper-cph-3{float:left;width:600px;color:#000;min-height:400px;padding:10px;}
+.master-wrapper-center-3{float:left;width:650px;margin:0 0 0 0px;display:inline;overflow:hidden;}
+.master-wrapper-cph-3{float:left;width:650px;color:#000;min-height:400px;padding:10px;}
 .master-wrapper-rightside-3{float:right;width:180px;margin:0 auto;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;display:inline;}
 /* MASTER HEADER */
 .header{background-color:#4072B9;padding:6px 6px 10px 5px;height:60px;}
@@ -135,7 +135,8 @@ td.fieldname{font-size:12px;}
 .searchboxbutton{margin-bottom:2px;}
 .productlistproductdetailbutton,.productgridproductdetailbutton{margin-bottom:3px;}
 .searchbutton,.contactusbutton,.newsitemaddcommentbutton,.blogpostaddcommentbutton,.productvariantaddtocartbutton,.productwritereviewbutton,.loginbutton,.registerbutton,.checkoutasguestbutton,.savecustomerinfobutton,.addaddressbutton,.changepasswordbutton,.registernextstepbutton,.completeregistrationbutton,.passwordrecoverybutton,.newpasswordbutton,.saveaddressbutton,.sendemailafriendbutton,.checkoutbutton,.selectshippingaddressbutton,.newaddressnextstepbutton,.selectbillingaddressbutton,.sameasshippingaddressbutton,.shippingmethodnextstepbutton,.paymentmethodnextstepbutton,.paymentinfonextstepbutton,.confirmordernextstepbutton,.submitforumtopicbutton,.submitpmbutton,.replypmbutton,.deleteselectedpmbutton,.reorderbutton,.minicartcheckoutbutton,.newsletterbox-subscribebutton,.useragreementbutton,.deleteselectedfsbutton,.submitreturnrequestbutton,.uploadavatarbutton,.checkavailabilitybutton{}
-.productlistaddtocartbutton,.productgridaddtocartbutton,.productemailafriendbutton,.productaddtocomparelistbutton,.productvariantaddtowishlistbutton,.editaddressbutton,.deleteaddressbutton,.cancelrecurringorderbutton,.orderdetailsbutton,.returnitemsbutton,.orderdetailsprintbutton,.estimateshippingbutton,.updatewishlistbutton,.applycouponcodebutton,.updatecartbutton,.continueshoppingbutton,.orderprocessedcontinuebutton,.submitpollvotebutton,.cancelforumtopicbutton,.forumsearchbutton,.forumsearchboxbutton,.cancelpmbutton,.deletepmbutton,.backpmbutton,.removeavatarbutton{}
+.productemailafriendbutton,.productaddtocomparelistbutton,.productvariantaddtowishlistbutton,.editaddressbutton,.deleteaddressbutton,.cancelrecurringorderbutton,.orderdetailsbutton,.returnitemsbutton,.orderdetailsprintbutton,.estimateshippingbutton,.updatewishlistbutton,.applycouponcodebutton,.updatecartbutton,.continueshoppingbutton,.orderprocessedcontinuebutton,.submitpollvotebutton,.cancelforumtopicbutton,.forumsearchbutton,.forumsearchboxbutton,.cancelpmbutton,.deletepmbutton,.backpmbutton,.removeavatarbutton{}
+.productlistaddtocartbutton,.productgridaddtocartbutton{}
 ul.languagelist{display:inline;line-height:25px;}
 ul.languagelist li{list-style:none;display:inline;padding:0 5px;}
 ul.languagelist li .selected{border:solid 1px #ccc!important;}
@@ -338,16 +339,16 @@ ul.languagelist li:hover{cursor:pointer;}
 .bestsellers{margin-left:auto;margin-right:auto;width:520px;}
 .bestsellers .title{padding:10px 0 1px;margin:0 5px 10px;font-weight:700;text-transform:uppercase;clear:both;font-size:1.1em;border-bottom:solid 1px #C4C6C8;text-align:center;}
 /* PRODUCTS IN GRID - TEMPLATE */
-.product-grid{margin-bottom:15px;margin-left:auto;margin-right:auto;width:590px;text-align:center;}
+.product-grid{margin-bottom:15px;margin-left:auto;margin-right:auto;/*width:790px;*/text-align:center}
 .product-grid .item-box{padding-bottom:10px;text-align:center;vertical-align:text-top;}
-.product-grid .product-item{text-align:center;margin:0px 5px;width:275px;border:1px solid #E8E6D2;}
-.product-grid .product-item .product-title{font-weight:700;font-size:12px;float:right;padding-left:10px;width:100px;}
-.product-grid .product-item .product-title a{display:block;height:2em;line-height:1.3em;overflow:hidden;padding:4px 10px 8px 0;color:#3A4045;}
-.product-grid .product-item .picture{text-align:center;margin-top:10px;width:140px;}
+.product-grid .product-item{text-align:center;width:263px}
+.product-grid .product-item .product-title{font-weight:700;font-size:12px;float:left;text-align:left;width:250px;position:relative}
+.product-grid .product-item .product-title a{display:block;height:2em;line-height:1.3em;overflow:hidden;padding:4px 10px 8px 0;color:#2166A2;font-weight:bold}
+.product-grid .product-item .picture{text-align:center;margin-top:10px;width:140px;/*height:180px*/}
 .product-grid .product-item .description{margin:5px 5px 0;text-align:center;padding:10px 5px;border-top:solid 1px #E8E6D2;color:#555;height:50px;display:none;}
-.product-grid .product-item .add-info{}
-.product-grid .product-item .add-info .prices{margin-right:10px;text-align:right;}
-.product-grid .product-item .add-info .buttons{background-color:#F7F5E8;padding:4px;position:relative;text-align:left;}
+.product-grid .product-item .add-info{margin-left:15px}
+.product-grid .product-item .add-info .prices{margin-right:10px;text-align:left;float:left;clear:both}
+.product-grid .product-item .add-info .buttons{float:left;position:relative;text-align:right;}
 .product-grid .product-item .add-info .prices .productPrice{color:#137C13;font-size:16px;font-weight:bold;}
 .product-grid .product-item .add-info .prices .oldproductPrice{color:Red;text-decoration:line-through;}
 .product-grid .item-box{padding-bottom:10px;text-align:center;vertical-align:text-top;}
@@ -391,10 +392,10 @@ ul.languagelist li:hover{cursor:pointer;}
 .sub-category-grid .sub-category-item,.manufacturer-grid .manufacturer-item{text-align:center;margin:10px;width:150px;height:auto;border:1px solid #E8E6D2;}
 .sub-category-grid .sub-category-item .category-title,.manufacturer-grid .manufacturer-item .man-title{text-align:center;font-weight:700;font-size:.9em;display:block;overflow:hidden;height:1.8em;padding:8px 0 5px;}
 .sub-category-grid .sub-category-item .picture,.manufacturer-grid .manufacturer-item .picture{text-align:center;padding:10px 0;}
-.product-sorting{margin:0 auto 10px;float:left;}
+.product-sorting{margin:0 auto 10px;float:right;}
 .product-viewmode{margin:0 auto 10px;float:right;}
 .product-page-size{width:165px;margin:0 auto;text-align:center;}
-.product-filters{width:598px;margin:0 auto 10px auto;border:1px solid #E8E6D2;background:#F7F5E8;}
+.product-filters{/*width:598px;*/margin:0 auto 10px auto;border:1px solid #E8E6D2;background:#F7F5E8;}
 .product-filters .filter-title{font-weight:700;padding-left:10px;color:#3A4045;}
 .product-filters .filter-title span{display:block;height:2em;line-height:1.3em;overflow:hidden;padding:4px 10px 8px 0;}
 .product-filters .filter-item{padding:5px 10px;}
@@ -484,14 +485,14 @@ ul.languagelist li:hover{cursor:pointer;}
 .breadcrumb{float:left;padding:0;margin:10px 0 0;font-weight:700;text-transform:uppercase;font-size:1em;margin-bottom:10px;}
 .breadcrumb a{text-decoration:none;color:#3A4045;}
 .breadcrumb a:hover{text-decoration:underline;}
-.newslist{margin-bottom:15px;padding-bottom:5px;padding-left:0;}
-.newslist .page-title{padding:10px 0 1px;margin:0 5px 10px;font-weight:700;text-transform:uppercase;clear:both;font-size:1.1em;border-bottom:solid 1px #C4C6C8;}
-.newslist .page-title .title{text-align:left}
-.newslist .page-title .rss{text-align:right}
+.newslist{margin:5px 5px 15px;padding-bottom:5px;padding-left:0;border:1px solid #cccccc;border-radius:7px}
+.newslist .page-title{padding:10px 0 1px;height:30px;font-weight:700;clear:both;font-size:1.1em;border:1px #ffffff;border-bottom:solid 1px orange;background-color:#f5f5f5}
+.newslist .page-title .title{text-align:center}
+.newslist .page-title .rss{text-align:center}
 .newslist .newsitems{margin:0 5px;padding:0;}
 .newslist .newsitems .item{border-bottom:dashed 1px #C4C6C8;margin-bottom:10px;padding-bottom:10px;}
 .newslist .newsitems .newsdate{color:#9a9a9a;font-style:italic;}
-.newslist .newsitems a.newstitle{color:#555;text-decoration:none;font-size:1.2em;}
+.newslist .newsitems a.newstitle{color:#3D5793;text-decoration:none;/*font-size:1.2em;*/}
 .newslist .newsitems a.newstitle:hover{text-decoration:underline;}
 .newslist .newsitems .newsdetails{margin-top:10px;margin-bottom:10px;}
 .newslist .newsitems .readmore{font-weight:700;text-decoration:none;color:#3664A5;background-color:inherit;}
@@ -953,4 +954,5 @@ a:hover{text-decoration:underline}
 .followus{float:right}
 .followus_title{text-align:left;font-size:11px;margin-bottom:10px}
 .followus_item{float:left;margin-right:10px}
-/*FIN CMAS cambio git*/
+/*.slider-wrapper-Desnivell{width:600px;height:auto;position:absolute}*/
+/*FIN CMAS*/
