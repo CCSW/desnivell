@@ -1687,8 +1687,8 @@
     <Content Include="Themes\Desnivell\theme.config" />
     <Content Include="Themes\Desnivell\Views\Shared\Head.cshtml" />
     <Content Include="Themes\Desnivell\Views\Web.config" />
-    <Content Include="Views\NivoSlider\NivoSlider.cshtml" />
     <Content Include="Views\Common\FollowUs.cshtml" />
+    <Content Include="Views\NivoSlider\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
