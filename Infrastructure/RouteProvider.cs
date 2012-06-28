@@ -15,22 +15,30 @@ namespace Nop.Web.Infrastructure
                             new { controller = "Home", action = "Index"},
                             new[] { "Nop.Web.Controllers" });
 
+            // CMAS -- FIX PARA SEO FRIENDLY. PENDIENTE DE MEJORARLO
             //products
+            //routes.MapLocalizedRoute("Product",
+            //               "producto/{productId}/{SeName}",
+            //                new { controller = "Catalog", action = "Product",SeName = UrlParameter.Optional },
+            //                new { productId = @"\d+" }, //expresión regular que indica que productId ha de ser un número
+            //                new[] { "Nop.Web.Controllers" });
+
             routes.MapLocalizedRoute("Product",
-                           "producto/{productId}/{SeName}",
-                            new { controller = "Catalog", action = "Product",SeName = UrlParameter.Optional },
-                            new { productId = @"\d+" }, //expresión regular que indica que productId ha de ser un número
-                            new[] { "Nop.Web.Controllers" });            
+                            "{SeName}-p_{productId}",
+                            new { controller = "Catalog", action = "Product", SeName = UrlParameter.Optional },
+                            new { productId = @"\d+" },
+                            new[] { "Nop.Web.Controllers" });
+            // FIN CMAS
+
             routes.MapLocalizedRoute("RecentlyViewedProducts",
                             "recentlyviewedproducts/",
                             new { controller = "Catalog", action = "RecentlyViewedProducts" },
                             new[] { "Nop.Web.Controllers" });
-            // Añadido Cmas
             routes.MapLocalizedRoute("HomePageBestSellers",
-                            "topventas/",
+                            "HomePageBestSellers/",
                             new { controller = "Catalog", action = "HomePageBestSellers" },
                             new[] { "Nop.Web.Controllers" });
-            // fin Cmas
+            
             routes.MapLocalizedRoute("RecentlyAddedProducts",
                             "newproducts/",
                             new { controller = "Catalog", action = "RecentlyAddedProducts" },
@@ -67,20 +75,38 @@ namespace Nop.Web.Infrastructure
                             new[] { "Nop.Web.Controllers" });
 
             //catalog
+            // CMAS -- FIX PARA SEO FRIENDLY. PENDIENTE DE MEJORARLO
+            //routes.MapLocalizedRoute("Category",
+            //                "c/{categoryId}/{SeName}",
+            //                new { controller = "Catalog", action = "Category", SeName = UrlParameter.Optional },
+            //                new { categoryId = @"\d+" },
+            //                new[] { "Nop.Web.Controllers" });
             routes.MapLocalizedRoute("Category",
-                            "c/{categoryId}/{SeName}",
+                            "{SeName}-c-{categoryId}",
                             new { controller = "Catalog", action = "Category", SeName = UrlParameter.Optional },
                             new { categoryId = @"\d+" },
                             new[] { "Nop.Web.Controllers" });
+
+            // FIN CMAS
+
             routes.MapLocalizedRoute("ManufacturerList",
                             "manufacturer/all/",
                             new { controller = "Catalog", action = "ManufacturerAll" },
                             new[] { "Nop.Web.Controllers" });
+            // CMAS -- FIX PARA SEO FRIENDLY. PENDIENTE DE MEJORARLO
+            //routes.MapLocalizedRoute("Manufacturer",
+            //                "m/{manufacturerId}/{SeName}",
+            //                new { controller = "Catalog", action = "Manufacturer", SeName = UrlParameter.Optional },
+            //                new { manufacturerId = @"\d+" },
+            //                new[] { "Nop.Web.Controllers" });
+
             routes.MapLocalizedRoute("Manufacturer",
-                            "m/{manufacturerId}/{SeName}",
+                            "{SeName}-m-{manufacturerId}",
                             new { controller = "Catalog", action = "Manufacturer", SeName = UrlParameter.Optional },
                             new { manufacturerId = @"\d+" },
                             new[] { "Nop.Web.Controllers" });
+
+            // FIN CMAS
 
             //reviews
             routes.MapLocalizedRoute("ProductReviews",

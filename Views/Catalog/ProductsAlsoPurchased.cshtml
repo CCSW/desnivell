@@ -21,6 +21,9 @@
                         <a href="@Url.RouteUrl("Product", new { productId = item.Id, SeName = item.SeName })" title="@item.DefaultPictureModel.Title">
                             <img alt="@item.DefaultPictureModel.AlternateText" src="@item.DefaultPictureModel.ImageUrl" title="@item.DefaultPictureModel.Title" /></a>
                     </div>
+                    <div class="prices">
+                        @Html.Partial("_ProductPrice", item.ProductPrice)
+                    </div>
                 </div>
             </div>
             ))

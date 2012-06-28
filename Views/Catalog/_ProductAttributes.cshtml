@@ -123,7 +123,7 @@
         @foreach (var attribute in Model)
         {
             string controlId = string.Format("product_attribute_{0}_{1}_{2}", attribute.ProductVariantId, attribute.ProductAttributeId, attribute.Id);
-            <div>
+            <div class="attributeVariantItem">
                 @if (attribute.IsRequired)
                 {
                     <span>*</span>

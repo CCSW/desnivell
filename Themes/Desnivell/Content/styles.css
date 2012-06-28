@@ -575,7 +575,7 @@ ul.languagelist li:hover{cursor:pointer;}
 .emailafriend-page .send-email .friendemail{width:350px;}
 .emailafriend-page .send-email .youremail{width:350px;}
 .emailafriend-page .send-email .personalmessage{width:350px;height:150px;}
-.recently-added-products{}
+.recently-added-products{width:520px;margin:auto auto 15px auto}
 .recently-added-products .page-title{}
 .recently-added-products .page-title .title{text-align:left;}
 .recently-added-products .page-title .rss{text-align:right;}
@@ -621,7 +621,7 @@ ul.languagelist li:hover{cursor:pointer;}
 .product-details-info{}
 .product-details-info .picture{float:left;width:300px;margin-top:25px;margin-bottom:15px;}
 .product-details-info .picture .picturethumbs{margin-top:10px;}
-.product-details-info .overview{float:right;width:230px;margin-right:15px;margin-top:25px;padding:5px;border:dashed 1px #C4C6C8;}
+.product-details-info .overview{float:right;width:350px;margin-right:15px;padding:5px}
 .product-details-info .overview .productname{color:#3664A5;font-size:1.2em;margin-bottom:.3em;}
 .product-details-info .overview .shortdescription,.product-details-info .overview .manufacturers,.product-details-info .overview .sku,.product-details-info .overview .manufacturerpartnumber,.product-details-info .overview .stock,.product-details-info .overview .gtin{color:#555;margin-bottom:.3em;font-size:1.1em;}
 .backinstocksubscription{margin-top:10px;margin-bottom:10px;}
@@ -668,6 +668,7 @@ ul.languagelist li:hover{cursor:pointer;}
 .product-variant-line .add-info .enter-price-input,.product-essential .add-info .enter-price-input{width:60px;}
 .product-variant-line .add-info .qty-input,.product-essential .add-info .qty-input{width:40px;}
 .product-variant-line .attributes{}
+.product-variant-line .attributes .attributeVariantItem{margin:10px 0px}
 .product-variant-line .attributes .textprompt{font-weight:bold;}
 .product-variant-line .attributes .textbox{width:300px;}
 .product-variant-line .attributes textarea{width:300px;height:150px;}
@@ -682,7 +683,7 @@ ul.languagelist li:hover{cursor:pointer;}
 .related-products-grid,.also-purchased-products-grid{}
 .related-products-grid .title,.also-purchased-products-grid .title{padding:10px 10px 10px 0;font-weight:700;text-transform:uppercase;clear:both;}
 .related-products-grid .item-box,.also-purchased-products-grid .item-box{padding-bottom:10px;text-align:center;vertical-align:text-top;}
-.related-products-grid .item,.also-purchased-products-grid .item{text-align:center;margin:10px;border:1px solid #E8E6D2;width:200px;height:200px;}
+.related-products-grid .item,.also-purchased-products-grid .item{text-align:center;margin:25px;border:1px solid #E8E6D2;width:200px;height:200px;}
 .related-products-grid .item .product-title,.also-purchased-products-grid .item .product-title{margin-bottom:5px;margin-top:5px;text-align:center;font-weight:700;text-transform:none;font-size:1em;padding:0;}
 .related-products-grid .item .picture,.also-purchased-products-grid .item .picture{text-align:center;}
 .productspec-box{}
@@ -954,4 +955,5 @@ a:hover{text-decoration:underline}
 .followus{float:right}
 .followus_title{text-align:left;font-size:11px;margin-bottom:10px}
 .followus_item{float:left;margin-right:10px}
-
+/*.slider-wrapper-Desnivell{width:600px;height:auto;position:absolute}*/
+/*FIN CMAS*/

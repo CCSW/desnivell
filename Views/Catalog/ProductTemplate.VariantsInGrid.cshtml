@@ -67,6 +67,9 @@
                     <h1 class="productname">
                         @Model.Name
                     </h1>
+                    <iframe src="http://www.facebook.com/plugins/like.php?href=httpF%2%3A%2Fwww.bicicletasdesnivell.com/producto/"+@Model.Id+"/"+@Model.SeName+"/;
+    send=false&amp;layout=standard&amp;width=1800&amp;show_faces=false&amp;action=like&amp;colorscheme=light&amp;font&amp;height=35" 
+    scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:1800px; height:35px;" allowTransparency="true"></iframe>
                     <br />
                     <div class="shortdescription">
                         @Html.Raw(Model.ShortDescription)
@@ -75,6 +78,17 @@
                     </div>
                     <!--product manufactures-->
                     @Html.Action("ProductManufacturers", "Catalog", new { productId = Model.Id })
+                    <div class="clear">
+                    </div>
+                    <!--product variants-->
+                    <div class="product-variant-list">
+                        @foreach (var variant in Model.ProductVariantModels)
+                        {
+                            var dataDictVariant = new ViewDataDictionary();
+                            dataDictVariant.TemplateInfo.HtmlFieldPrefix = string.Format("variant_{0}", variant.Id);
+                            @Html.Partial("_ProductVariantLine", variant, dataDictVariant)
+                        }
+                    </div>
                     <div class="clear">
                     </div>
                     <!--product reviews-->
@@ -104,24 +118,16 @@
                     <div class="clear">
                     </div>
                     @Html.Action("ShareButton", "Catalog")
-                </div>
+                </div>                
                 <div class="fulldescription">
                     @Html.Raw(Model.FullDescription)
                 </div>
             </div>
+
         </div>
         <div class="clear">
         </div>
-        <div class="product-collateral">
-            <!--product variants-->
-            <div class="product-variant-list">
-                @foreach (var variant in Model.ProductVariantModels)
-                {
-                    var dataDictVariant = new ViewDataDictionary();
-                    dataDictVariant.TemplateInfo.HtmlFieldPrefix = string.Format("variant_{0}", variant.Id);
-                    @Html.Partial("_ProductVariantLine", variant, dataDictVariant)
-                }
-            </div>
+        <div class="product-collateral">           
             <div class="clear">
             </div>
             <div>
