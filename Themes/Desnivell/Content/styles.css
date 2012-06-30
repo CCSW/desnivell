@@ -32,7 +32,7 @@ input
 .master-wrapper-cph-3{float:left;width:650px;color:#000;min-height:400px;padding:10px;}
 .master-wrapper-rightside-3{float:right;width:180px;margin:0 auto;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;display:inline;}
 /* MASTER HEADER */
-.header{background-color:#4072B9;padding:6px 6px 10px 5px;height:60px;}
+.header{background-color:#4072B9;padding:6px 6px 5px 5px;height:60px;}
 .header .icon{vertical-align:bottom;}
 .header .ico-register{background:url(images/ico-register.gif) no-repeat;padding-left:20px;padding-bottom:5px;}
 .header .ico-login{background:url(images/ico-login.gif) no-repeat;padding-left:20px;padding-bottom:5px;}
@@ -42,13 +42,13 @@ input
 .header .ico-wishlist{background:url(images/ico-wishlist.gif) no-repeat;padding-left:20px;padding-bottom:5px;}
 .header .ico-admin{background:url(images/ico-admin.gif) no-repeat;padding-left:20px;padding-bottom:5px;}
 .header-logo{margin-top:5px;float:left;text-align:left;}
-a.logo{background:url(images/logoDEsnivell.png);display:block;width:182px;height:60px;text-decoration:none;}
+a.logo{background:url(images/logoDesnivell6p.png);display:block;width:187px;height:60px;text-decoration:none;}
 .header-selectors-wrapper{text-align:right;float:right;/*width:500px;*/}
 .header-currencyselector{float:right;}
 .header-languageselector{float:right;display:none}
 .header-taxDisplayTypeSelector{float:right;}
-.header-links-wrapper{float:right;text-align:right;/*width:670px;*/}
-.header-links{border:solid 1px #FFF;padding:5px;margin-bottom:5px;display:inline-table;}
+.header-links-wrapper{text-align:right;/*width:670px;*/}
+.header-links{border:solid 1px #FFF;float:right;padding:5px;margin-bottom:5px;display:inline-table;}
 .header-links ul{padding:0;margin:0;}
 .header-links ul li{list-style:none;display:inline;padding-right:2px;}
 .header-links a{color:#3664A5;text-decoration:none;}
@@ -66,8 +66,9 @@ a.logo{background:url(images/logoDEsnivell.png);display:block;width:182px;height
 .headermenu ul.topmenu{background-image:url(images/fondoMenu2.png);height:25px;padding:5px;text-align:right;}
 .footer{height:35px;background-image:URL(images/hojas2.png);background-repeat:repeat-x;padding-top:30px;margin-top:-30px;}
 .footer a{text-decoration:none;}
-.footer-disclaimer{width:100%;height:35px;text-align:right;font-size:11px;background-color:#6C0;padding-top:20px;}
-.footer-poweredby{float:left;font-size:11px;position:absolute;background-image: url(images/shadow3.png);background-repeat: no-repeat;height: 125px;padding-top: 100px;margin-top: -90px;margin-left: 10px;}
+.footer-disclaimer{width:100%;height:35px;text-align:right;font-size:14px;background-color:#6C0;padding-top:20px;}
+.footer-poweredby{color:#66CC00;float:left;font-size:1px;position:absolute;background-image: url(images/shadow3.png);background-repeat: no-repeat;height: 125px;padding-top: 100px;margin-top: -90px;margin-left: 10px;width:75px;}
+.footer-poweredby a{color:#66CC00;font-size:1px;}
 .footer-storetheme{float:right;margin:0 100px 0 10px;font-size:11px;}
 .changedevice{clear:both;text-align:right;}
 /* MISC. CLASSES */
@@ -106,7 +107,7 @@ td.fieldname{font-size:12px;}
 .message-error{font-family:Verdana, Arial, sans-serif;font-size:10px;font-weight:700;color:red;}
 .validation-summary-errors{font-family:Verdana, Arial, sans-serif;font-size:10px;font-weight:700;color:red;}
 .field-validation-error{font-family:Verdana, Arial, sans-serif;font-size:10px;font-weight:700;color:red;}
-.copyright{float:right;padding-right:10px;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;font-size:10px;}
+.copyright{float:right;font-family:Tahoma, Verdana, Arial, Helvetica, sans-serif;font-size:10px;margin-right:10px;margin-top:75px;}
 .copyright a{color:#3664A5;background-color:inherit;}
 /* sitemap */
 .sitemap-page{margin-left:auto;margin-right:auto;width:100%;}
@@ -944,15 +945,23 @@ pre{white-space:pre-wrap;/* css-3 */white-space:0;/* Mozilla, since 1999 */white
 .csharpcode .alt{background-color:#f4f4f4;width:100%;margin:0;}
 .csharpcode .lnum{color:#606060;}
 /*CMAS*/
-.InfoBlock_title{text-align:center}
+.InfoBlock_title{float:left;margin-right:5px;text-align:center}
+.InfoBlock_datos{border-left: 1px dashed #3A4045;color:#3A4045;float:left;font-size:12px;}
+.InfoBlock_datos ul{padding-left:5px;}
+.InfoBlock_datos a{color:#3A4045;font-size:12px;}
 .InfoBlock_foot_left{float:left;margin-left:110px;width:250px;text-align:left}
 .InfoBlock_foot_right{float:left;text-align:left}
+.infoFooter, .infoFooter .block-info{display:table;float:left;}
+.infoFooter{width:100%}
+.infoFooter .block-info{margin-left:5%}
+.footer a.logo{background:url(images/logoDesnivell6.png);display:block;width:284px;height:91px;text-decoration:none;}
 .changedevice{clear:both;text-align:right;}
 .CategoryMaintitle{border:1px solid #ffffff;border-radius:7px 7px 0px 0px;height:30px;text-align:center;font-weight:bold;border-bottom:1px solid orange;background-color:#f5f5f5}
 .Categorytitle{margin:5px 0px}
 .Categorytitle a{font-weight:bold;color:#666666}
 a:hover{text-decoration:underline}
-.followus{float:right}
+.footer-logo{float:left;margin: 0px 0px 0px 40%}
+.followus{float:right;margin-right:10%;}
 .followus_title{text-align:left;font-size:11px;margin-bottom:10px}
 .followus_item{float:left;margin-right:10px}
 /*.slider-wrapper-Desnivell{width:600px;height:auto;position:absolute}*/
