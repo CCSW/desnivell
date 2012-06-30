@@ -3,3 +3,6 @@ obj
 bin
 Administration/obj
 Administration/Bin
+
+# Fichero de configuración de la concexión de BD
+App_Data/Settings.txt

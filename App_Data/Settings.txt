@@ -1,2 +1,0 @@
-DataProvider: sqlserver
-DataConnectionString: Data Source=.\sql2005;Initial Catalog=Desnivell;Integrated Security=True;Persist Security Info=False;MultipleActiveResultSets=True
